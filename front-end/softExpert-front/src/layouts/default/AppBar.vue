@@ -13,7 +13,7 @@
         <v-btn href="http://localhost:3000/products/create" variant="text">Add Product</v-btn>
         <v-btn href="http://localhost:3000/products/list" variant="text">List Product</v-btn>
         <v-btn href="http://localhost:3000/type/create" variant="text">Add Type Product</v-btn>
-        <v-btn href="http://localhost:3000/produtos" variant="text">Add Tax Percentages</v-btn>
+        <v-btn href="http://localhost:3000/products/buy" variant="text">Screen of Selling</v-btn>
         
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
