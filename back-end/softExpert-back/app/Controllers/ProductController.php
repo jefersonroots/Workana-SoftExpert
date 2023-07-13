@@ -36,7 +36,7 @@ class ProductController
     {
         
         $price = $request['price'];
-        $typeID = 1;//$request['typeID'];
+        $typeID = $request['typeID'];
     
         // Obter a conexão com o banco de dados
         $conn = getConnection();
