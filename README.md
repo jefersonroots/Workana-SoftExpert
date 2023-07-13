@@ -27,5 +27,5 @@
 
 
 
-
+* A inclusão do docker na aplicação infelizmente não foi completada. Ainda!
 
