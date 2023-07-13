@@ -41,11 +41,11 @@ function createProduct(data : any) {
     axios.post('http://localhost:8080/createProducts',  {name : name.value,  price : price.value, typeID: type.value})
   .then(resp => {  
       console.log(resp)
+      alert('Success');
   })
   .catch(error => {          
       console.log(error)       
   })
-    console.log(payload)
 
 }
 // const handleReset = () => {

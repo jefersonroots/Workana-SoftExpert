@@ -25,6 +25,16 @@ const routes = [
         name: 'Type',
         component: () => import('@/views/TypeProducts.vue'),
       },
+      {
+        path: '/products/buy',
+        name: 'Buy',
+        component: () => import('@/views/ProductSelling.vue'),
+      },
+      {
+        path: '/buy/list',
+        name: 'BuyList',
+        component: () => import('@/views/BuyList.vue'),
+      },
     ],
   },
 ]

@@ -54,18 +54,27 @@ class RouteSwitch
             http_response_code(405);
         }
     }
-
-    
-
-    public function about()
+    public function saveBuy($request)
     {
-        require __DIR__ . '/pages/about.html';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $data = $request;
+            $return = $this->productsController->saveBuy($data);
+
+            return json_encode($return);
+        } else {
+            http_response_code(405);
+        }
+    }
+    public function sellingList()
+    {
+
+        $return = $this->productsController->sellingList();
+
+        return json_encode($return);
     }
 
-    public function contact()
-    {
-        require __DIR__ . '/pages/contact.html';
-    }
     
     public function __call($name, $arguments)
     {
