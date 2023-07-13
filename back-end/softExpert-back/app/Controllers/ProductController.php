@@ -46,7 +46,7 @@ class ProductController
             // Preparar a instrução SQL de inserção
             $query = "INSERT INTO Products (Name, Price, TypeID) VALUES (?,?,?)";
   
-            $conn->prepare($query)->execute([$request['name'],$typeID,$price]);
+            $conn->prepare($query)->execute([$request['name'],$price,$typeID]);
 
             return 'Cadastrado';
     }
