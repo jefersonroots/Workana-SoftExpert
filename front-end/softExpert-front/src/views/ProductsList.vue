@@ -2,17 +2,17 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-const produtos = ref([]);
+const products = ref([]);
 
 onMounted(() => {
-    fetchProdutos();
+    fetchProducts();
 });
 
-function fetchProdutos() {
+function fetchProducts() {
     axios.get('http://localhost:8080/products')
 
         .then(response => {
-            produtos.value = response.data;
+            products.value = response.data;
 
         })
         .catch(error => {
@@ -36,7 +36,7 @@ function fetchProdutos() {
       </thead>
       <tbody>
         <tr
-          v-for="item in produtos"
+          v-for="item in products"
           :key="item.id"
         >
           <td>{{ item.name }}</td>

@@ -18,7 +18,7 @@ function createTypeProduct() {
 
       name.value = ''
       tax.value = ''
-
+      alert('Success');
       fetchTypeProducts()
     })
     .catch(error => {
