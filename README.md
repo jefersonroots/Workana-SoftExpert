@@ -29,5 +29,5 @@
 
 
 
-* A inclusão do docker na aplicação infelizmente não foi completada. Ainda!
+* A inclusão do front-end no docker está em construção!
 
