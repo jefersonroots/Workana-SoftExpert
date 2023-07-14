@@ -21,9 +21,11 @@
 ### Passos utilizados para abrir o projeto após um git clone
    *  git clone [https://github.com/jefersonroots/Workana-SoftExpert.git]
    *  abrir repositório;
-   *  na pasta backend/softExpert-back rodar o comando: php -S localhost:8080;
-   *  na pasta fronend/softExpert-front rodar o comando : npm install depois -> npm run dev;
-   *  não esqueça de subir o banco de dados;
+   *  na pasta docker rodar o comando: docker compose up -d
+       -> ele ira criar containers de banco mssql e php
+       -> o banco e o dados base estão sendo criado juntos ao comando docker compose up
+   *  na pasta frontend/softExpert-front rodar o comando : npm install depois -> npm run dev;
+  
 
 
 
