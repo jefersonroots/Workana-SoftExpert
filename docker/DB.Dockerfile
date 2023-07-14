@@ -1,14 +1,29 @@
 # Imagem base
 FROM mcr.microsoft.com/mssql/server:2019-latest
 
-# Variáveis de ambiente para configurar a instância do MSSQL
 ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=E8d#s46i
+ENV SA_PASSWORD=E8ds46i1
 ENV MSSQL_PID=Developer
 ENV MSSQL_TCP_PORT=1433
+ENV SERVER_NAME=DBMarket
 
-# Expor a porta do MSSQL
+ENV DB_NAME=MarketDB
 EXPOSE 1433
 
-# Comando para iniciar o servidor do MSSQL
-CMD ["/opt/mssql/bin/sqlservr"]
+
+COPY docker/script.sql /script.sql
+
+
+COPY docker/entrypoint.sh /entrypoint.sh
+
+
+USER root
+RUN chown root:root /entrypoint.sh
+
+
+RUN chmod +x /entrypoint.sh
+
+
+USER mssql
+
+CMD /entrypoint.sh

@@ -1,7 +1,7 @@
 <?php
 
  function getConnection(){
-$serverName = "localhost"; 
+$serverName = "database"; 
 $database = "MarketDB"; 
 $username = "admin";
 $password = "admin"; 

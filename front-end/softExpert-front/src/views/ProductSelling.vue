@@ -1,74 +1,15 @@
-<template>
-  <v-container>
-    <v-card class="mb-4">
-      <v-card-title>Shopping Cart</v-card-title>
-      <v-card-text>
-        <v-list>
-          <v-list-item v-for="item in cartItems" :key="item.id">
-            <v-list-item-content>
-              <v-list-item-title>{{ item.name }}</v-list-item-title>
-              <v-label>price:</v-label>
-              <v-list-item-subtitle>{{ item.price }}</v-list-item-subtitle>
-              <v-label>quantity:</v-label>
-              <v-list-item-subtitle>{{ item.quantity }}</v-list-item-subtitle>
-
-            </v-list-item-content>
-          </v-list-item>
-          <v-divider></v-divider>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Total Items Value:</v-list-item-title>
-              <v-list-item-subtitle>{{ getTotalItems() }}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Total Purchase Value:</v-list-item-title>
-              <v-list-item-subtitle>{{ getTotalPrice() }}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Total Tax Value:</v-list-item-title>
-              <v-list-item-subtitle>{{ getTotalTax() }}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn color="primary" @click="saveBuy()">Complete Purchase</v-btn>
-      </v-card-actions>
-    </v-card>
-
-    <v-row>
-      <v-col v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="3">
-        <v-card class="mb-4">
-          
-          <v-card-title>{{ product.name }}</v-card-title>
-          <v-card-text>
-            <p>{{ product.typeName }}</p>
-            <p>{{ product.price }}</p>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="primary" @click="addToCart(product)">Add to Cart</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 
-const products = ref([])
+const products : any = ref([])
 
-const cartItems = ref([]);
+const cartItems : any = ref([]);
 
-const addToCart = (product) => {
-  const existingItem = cartItems.value.find((item) => item.id === product.id);
+const addToCart = (product : any) => {
+  const existingItem = cartItems.value.find((item : any) => item.id === product.id);
   if (existingItem) {
     existingItem.quantity++;
   } else {
@@ -134,3 +75,63 @@ const getTotalTax = () => {
 //     store.dispatch('checkout', cartItems.value);
 //   };
 </script>
+
+<template>
+  <v-container>
+    <v-card class="mb-4">
+      <v-card-title>Shopping Cart</v-card-title>
+      <v-card-text>
+        <v-list>
+          <v-list-item v-for="item in cartItems" :key="item.id">
+            <v-list-item-content>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+              <v-label>price:</v-label>
+              <v-list-item-subtitle>{{ item.price }}</v-list-item-subtitle>
+              <v-label>quantity:</v-label>
+              <v-list-item-subtitle>{{ item.quantity }}</v-list-item-subtitle>
+
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Total Items Value:</v-list-item-title>
+              <v-list-item-subtitle>{{ getTotalItems() }}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Total Purchase Value:</v-list-item-title>
+              <v-list-item-subtitle>{{ getTotalPrice() }}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Total Tax Value:</v-list-item-title>
+              <v-list-item-subtitle>{{ getTotalTax() }}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" @click="saveBuy()">Complete Purchase</v-btn>
+      </v-card-actions>
+    </v-card>
+
+    <v-row>
+      <v-col v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="3">
+        <v-card class="mb-4">
+          
+          <v-card-title>{{ product.name }}</v-card-title>
+          <v-card-text>
+            <p>{{ product.typeName }}</p>
+            <p>{{ product.price }}</p>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" @click="addToCart(product)">Add to Cart</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>

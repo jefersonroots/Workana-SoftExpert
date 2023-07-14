@@ -78,7 +78,8 @@ class RouteSwitch
     
     public function __call($name, $arguments)
     {
-        http_response_code(404);
-        require __DIR__ . '/pages/not-found.html';
+        echo "WELCOME MY API";
+        // http_response_code(404);
+        // require __DIR__ . '/pages/not-found.html';
     }
 }

@@ -1,27 +1,40 @@
 version: '3.8'
 services:
-  backend:
-    build:
-      context: ../
-      dockerfile: ./docker/Dockerfile
-    ports:
-      - 8080:80
-    working_dir: /var/www/html
-    restart: unless-stopped
-    volumes:
-      - ../back-end/softExpert-back:/var/www/html
-    environment:
-      - DB_HOST=DESKTOP-D7S7L2B
-      - DB_PORT=1433
-      - DB_NAME=MarketDB
-      - DB_USER=admin
-      - DB_PASSWORD=admin
+  # backend:
+  #   build:
+  #     context: ../
+  #     dockerfile: ./docker/Dockerfile
+  #   ports:
+  #     - 8080:80
+  #   working_dir: /var/www/html
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ../back-end/softExpert-back:/var/www/html
+  #   networks:
+  #     - mynetwork
 
-  database:
+  frontend:
+    container_name: frontend
     build:
       context: ../
-      dockerfile: ./docker/DB.Dockerfile      
-    environment:
-      - SA_PASSWORD=E8d#s46i
+      dockerfile: ./docker/Node.Dockerfile
     ports:
-      - 1433:1433
+      - 3000:3000
+    volumes:
+      - ../front-end/softExpert-front:/usr/src/app
+    command: "npm start" 
+    networks:
+      - mynetwork
+        
+  # database:
+  #   container_name: database
+  #   build:
+  #     context: ../
+  #     dockerfile: ./docker/DB.Dockerfile
+  #   ports:
+  #     - 1433:1433
+  #   networks:
+  #     - mynetwork
+
+networks:
+  mynetwork:      
