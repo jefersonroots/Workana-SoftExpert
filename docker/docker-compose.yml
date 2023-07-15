@@ -1,40 +1,40 @@
 version: '3.8'
 services:
-  # backend:
-  #   build:
-  #     context: ../
-  #     dockerfile: ./docker/Dockerfile
-  #   ports:
-  #     - 8080:80
-  #   working_dir: /var/www/html
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ../back-end/softExpert-back:/var/www/html
-  #   networks:
-  #     - mynetwork
-
-  frontend:
-    container_name: frontend
+  backend:
     build:
       context: ../
-      dockerfile: ./docker/Node.Dockerfile
+      dockerfile: ./docker/Dockerfile
     ports:
-      - 3000:3000
+      - 8080:80
+    working_dir: /var/www/html
+    restart: unless-stopped
     volumes:
-      - ../front-end/softExpert-front:/usr/src/app
-    command: "npm start" 
+      - ../back-end/softExpert-back:/var/www/html
     networks:
       - mynetwork
-        
-  # database:
-  #   container_name: database
+
+  # frontend:
+  #   container_name: frontend
   #   build:
   #     context: ../
-  #     dockerfile: ./docker/DB.Dockerfile
+  #     dockerfile: ./docker/Node.Dockerfile
   #   ports:
-  #     - 1433:1433
+  #     - 3000:3000
+  #   volumes:
+  #     - ../front-end/softExpert-front:/usr/src/app
+  #   command: "npm start" 
   #   networks:
   #     - mynetwork
+        
+  database:
+    container_name: database
+    build:
+      context: ../
+      dockerfile: ./docker/DB.Dockerfile
+    ports:
+      - 1433:1433
+    networks:
+      - mynetwork
 
 networks:
   mynetwork:      
