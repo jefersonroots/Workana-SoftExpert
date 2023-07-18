@@ -23,25 +23,19 @@ function fetchProducts() {
 
 </script>
 <template>
-    <v-table>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Type
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="item in products"
-          :key="item.id"
-        >
-          <td>{{ item.name }}</td>
-          <td>{{ item.typeName }}</td>
-        </tr>
-      </tbody>
-    </v-table>
-  </template>
+  <v-table>
+    <thead>
+      <tr>
+        <th class="text-left">Name</th>
+        <th class="text-left">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in products" :key="item.id">
+        <td>{{ item.name }}</td>
+        <td>{{ item.typeName }}</td>
+      </tr>
+    </tbody>
+  </v-table>
+</template>
+

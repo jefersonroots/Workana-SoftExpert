@@ -1,44 +1,28 @@
 <?php
 
 require_once __DIR__ . '/../../database/connection.php';
+require_once __DIR__ .'../../Services/TypeProductService.php';
 
 
 class TypeProductController
 {
+    private $typeProductService;
+
+    public function __construct()
+    {
+        $this->typeProductService = new TypeProductService();
+    }
+
     public function index()
     {
-
-        $conn = getConnection();
-
-        $query = "SELECT * FROM ProductTypes";
-        $stmt = $conn->query($query);
-
-        $types = array();
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $type = array(
-                'id' => $row['TypeID'],
-                'name' => $row['Name'],
-                'tax' => $row['TaxPercentage'],                
-            );
-            $types[] = $type;
-        }
-
-
-
-        echo json_encode($types);
+        $types = $this->typeProductService->index();
+        print_r($types);
+      
     }
 
     public function create($request)
     {
-
+        return $this->typeProductService->create($request);
   
-        $tax = $request['tax'];
-        $conn = getConnection();
-
-        $query = "INSERT INTO ProductTypes (Name, TaxPercentage) VALUES (?,?)";
-
-        return $conn->prepare($query)->execute([$request['name'], $tax]);
-
-       
     }
 }
