@@ -25,6 +25,7 @@
       - Ira criar containers de banco mssql e php
       - O banco e o dados base estão sendo criado juntos ao comando docker compose up
    *  Na pasta frontend/softExpert-front rodar o comando : npm install depois -> npm run dev;
+   *  Comando para rodar o phpunit -> php vendor/bin/phpunit teste/ProductServiceTest.php;
   
 
 
