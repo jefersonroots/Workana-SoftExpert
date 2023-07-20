@@ -18,15 +18,22 @@
     </tr>
 </table>
 
-### Passos utilizados para abrir o projeto após um git clone
+### Passos utilizados para "startar" o projeto USANDO DOCKER após um git clone
    *  Git clone [https://github.com/jefersonroots/Workana-SoftExpert.git]
    *  Abrir repositório;
    *  Na pasta docker rodar o comando: docker compose up -d
       - Ira criar containers de banco mssql e php
       - O banco e o dados base estão sendo criado juntos ao comando docker compose up
-   *  Na pasta frontend/softExpert-front rodar o comando : npm install depois -> npm run dev;
+   *  Na pasta front-end/softExpert-front rodar o comando : npm install depois -> npm run dev;
    *  Comando para rodar o phpunit -> php vendor/bin/phpunit teste/ProductServiceTest.php;
   
+### Passos utilizados para "startar" o projeto USANDO AMBIENTE LOCAl após um git clone
+   *  Git clone [https://github.com/jefersonroots/Workana-SoftExpert.git]
+   *  Abrir repositório;
+   *  Na pasta docker, copie o documento sql e execute ele no SQL Server Management Studio;
+   *  Na pasta front-end/softExpert-front rodar o comando : npm install depois -> npm run dev;
+   *  Na pasta back-end/softExpert-back rodar o comando: composer install depois -> php -S localhost:8080;
+   *  Comando para rodar o phpunit -> php vendor/bin/phpunit teste/ProductServiceTest.php;
 
 
 
